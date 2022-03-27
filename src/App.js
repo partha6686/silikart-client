@@ -9,6 +9,7 @@ import Login from './pages/Login';
 import SignUp from './pages/SignUp';
 import Profile from './pages/Profile.js';
 import Seller from './pages/Seller.js';
+import ProductCard from "./components/common/ProductCard";
 import {
   BrowserRouter as Router,
   // Switch,
@@ -24,7 +25,7 @@ function App() {
       <div>
         <Routes>
           <Route exact path="/" element={<Home />}></Route>
-          <Route exact path="/about" element={<About />}></Route>
+          <Route exact path="/about" element={<ProductCard />}></Route>
           <Route exact path="/products/:category" element={<ProductPage />}></Route>
           <Route exact path="/auth/login" element={<Login />}></Route>
           <Route exact path="/auth/signup" element={<SignUp />}></Route>

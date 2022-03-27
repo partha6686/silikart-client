@@ -1,11 +1,29 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../../Css/ProductCard.css";
 import _ from "lodash";
 import { capitalize } from "lodash";
 
 const ProductCard = (props) => {
-  const { title, description, price, productImg } = props.data;
-  console.log(productImg);
+  const host = "http://localhost:3300";
+  const [us, setUs] = useState({});
+  const { title, description, price, productImg, user } = props.data;
+  const fetchUser = async () => {
+    const url = `${host}/api/auth/info/${user}`;
+    const response = await fetch(url, {
+      method: "GET",
+      headers: {
+        "Content-type": "application/json",
+        "auth-token": localStorage.getItem("token"),
+      },
+    });
+    // console.log(localStorage.getItem('token'));
+    const json = await response.json();
+    setUs({ json });
+  };
+  useEffect(() => {
+    fetchUser();
+  }, []);
+  console.log(us);
   const url = `http://localhost:3300/${productImg}`;
   return (
     <div className="product_card">
@@ -21,9 +39,12 @@ const ProductCard = (props) => {
           </h4>
           <p className="para">{_.capitalize(description)}</p>
         </div>
-        <div className="send_mail btn btn-outline-success">
+        <a
+          href={us.json && `mailto:${us.json.email}`}
+          className="send_mail btn btn-outline-success"
+        >
           <span>Mail</span>
-        </div>
+        </a>
         <div className="price btn btn-success">
           <span>₹ {price}</span>
         </div>

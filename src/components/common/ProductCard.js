@@ -1,30 +1,35 @@
-import React from 'react'
-import '../../Css/ProductCard.css'
+import React from "react";
+import "../../Css/ProductCard.css";
+import _ from "lodash";
+import { capitalize } from "lodash";
+
 const ProductCard = (props) => {
-    const { title, description, price, productImg } = props.data;
+  const { title, description, price, productImg } = props.data;
+  console.log(productImg);
+  const url = `http://localhost:3300/${productImg}`;
   return (
-    <div className='product_card'>
-        <div className='product_card_head'>
-            <div className='logo_img'>
-                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8c2hvZXN8ZW58MHx8MHx8&w=1000&q=80" alt="productImg" />
-
-            </div>
+    <div className="product_card">
+      <div className="product_card_head">
+        <div className="logo_img">
+          <img src={url} alt="productImg" height={250} width={350} />
         </div>
-        <div className='product_card_body'>
-        <div class="branding">
-                    <h4><b>title</b></h4>
-                    <span>19</span>
-                    <p>description</p>
-                </div>
-                <div class="send_mail btn btn-outline-success">
-                    <span>Mail To</span>
-                </div>
-                <div class="price btn btn-success">
-                    <span>₹price</span>
-                </div>
+      </div>
+      <div className="product_card_body">
+        <div className="branding">
+          <h4>
+            <b>{_.capitalize(title)}</b>
+          </h4>
+          <p className="para">{_.capitalize(description)}</p>
         </div>
+        <div className="send_mail btn btn-outline-success">
+          <span>Mail</span>
+        </div>
+        <div className="price btn btn-success">
+          <span>₹ {price}</span>
+        </div>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default ProductCard
+export default ProductCard;

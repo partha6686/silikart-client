@@ -17,7 +17,8 @@ const Profile = () => {
     const json = await response.json();
     console.log(json);
     if (response.status === 200) {
-      setProducts(json);
+      setProducts((old) => [...old,json]);
+      console.log(products);
     }
   };
   const fetchUser = async () => {
@@ -56,10 +57,12 @@ const Profile = () => {
         </div>
       </div>
       <div>
-        {products.map((data) => {
-          <p>{data.title}</p>;
-          // <UserProduct key={data._id} data={data} />
-        })}
+        <div>
+          {products &&
+            products.map((data) => {
+              <UserProduct data={data} />;
+            })}
+        </div>
       </div>
     </>
   );

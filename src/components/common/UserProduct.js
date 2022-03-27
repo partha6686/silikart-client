@@ -1,7 +1,8 @@
 import React from "react";
 
-const UserProducts = () => {
-  return <div>UserProducts</div>;
+const UserProducts = (props) => {
+  const { data } = props;
+  return <div>{data.title}</div>;
 };
 
 export default UserProducts;

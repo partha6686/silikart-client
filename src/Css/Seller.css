@@ -1,0 +1,56 @@
+.form-box {
+  position: relative;
+  top: 80px;
+  max-width: 600px;
+  margin: auto;
+  padding: 30px;
+  background: #fffbfb;
+  border: 10px solid #f2f2f2;
+  border-radius: 30px;
+}
+
+h1,
+p {
+  text-align: center;
+}
+
+input,
+textarea {
+  width: 100%;
+}
+/* .pic
+{
+  color: white;
+  float: right;
+  position: relative;
+  right: 30px;
+} */
+.tv {
+  color: white;
+  position: relative;
+  top: 50px;
+  justify-content: center;
+  text-align: center;
+}
+.profi button {
+  position: relative;
+  top: 140px;
+  left: 10px;
+  /* width: 40px;
+  height: 20px; */
+  color: rgb(252, 252, 252);
+  background-color: rgb(34, 190, 238);
+  border-radius: 5px;
+  text-decoration: none;
+  padding: 5px;
+}
+.profi button b {
+  color: rgb(10, 10, 10);
+  text-decoration: none;
+}
+.form-group textarea {
+  height: 90px;
+}
+button b {
+  text-decoration: none;
+}

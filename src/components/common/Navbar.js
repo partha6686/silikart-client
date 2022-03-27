@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import '../../Css/Navbar.css';
+import { GiHamburgerMenu } from 'react-icons/gi'
 import { Link, Navigate } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
-import { GiHamburgerMenu } from 'react-icons/gi';
 
 const Navbar = () => {
   const [user, setUser] = useState({});
@@ -17,7 +17,22 @@ const Navbar = () => {
 
   }
   const fetchUser = async () => {
-
+    const url = `${host}/api/auth/info`;
+    const response = await fetch(url, {
+      method: "GET",
+      headers: {
+        'Content-type': 'application/json',
+        'auth-token': localStorage.getItem('token')
+      }
+    });
+    // console.log(localStorage.getItem('token'));
+    if (response.status === 200) {
+      const json = await response.json();
+      setUser(json);
+      console.log(json);
+    } else {
+      setUser({});
+    }
   }
   useEffect(() => {
     fetchUser();
@@ -34,11 +49,10 @@ const Navbar = () => {
 
           </div>
           <div className="right">
-          {/* <div className="right"> */}
             <ul>
               <li><Link to="/"><b>HOME</b></Link></li>
               <li><Link to="/about">ABOUT</Link></li>
-              {user._id ? <li><Link to="/auth/login" onClick={handleLogout} >Logout</Link></li> : <li><Link to="/auth/signup">SignUp</Link></li>}
+              {localStorage.getItem('token') ? <li><Link to="/auth/login" onClick={handleLogout} >Logout</Link></li> : <li><Link to="/auth/signup">SignUp</Link></li>}
             </ul>
             <div className="burger">
               <GiHamburgerMenu size="32px" />
@@ -47,13 +61,12 @@ const Navbar = () => {
         </div>
         <div className="bottom_nav">
           <ul>
-            <li><Link to="#"></Link></li>
+            <li><a href="#"></a></li>
             <li><Link to="/products/electronics"><b>Electronics</b></Link></li>
             <li><Link to="/products/books">Books</Link></li>
             <li><Link to="/products/lab"><b>Lab Equipments</b></Link></li>
-            <li><Link to="/products/fashion">Fashion</Link></li>
-            <li><Link to="/products/hostel"><b>Hostel Essentials</b></Link></li>
-            <li><Link to="/products/others">Others</Link></li>
+            <li><Link to="/products/hostel">Hostel Essentials</Link></li>
+            <li><Link to="/products/others"><b>Others</b></Link></li>
             <li><Link to="#"></Link></li>
           </ul>
 

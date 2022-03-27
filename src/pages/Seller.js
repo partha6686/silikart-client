@@ -1,4 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
+import "../Css/Seller.css"
+import { useNavigate } from 'react-router';
 
 const Seller = () => {
     const host = "http://localhost:3300/";
@@ -24,7 +26,41 @@ const Seller = () => {
             }
         })
     }
-    //write the handle submit part
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const url = `${host}api/products/add-product`;
+        const response = await fetch(url, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "auth-token": localStorage.getItem("token")
+            },
+            body: JSON.stringify({
+                title: val.title,
+                description: val.description,
+                price: val.price,
+                category: val.category
+            })
+        })
+        let json = await response.json();
+        console.log(json);
+        if (response.status === 200) {
+            const data = new FormData();
+            data.append("productImg", file);
+            const newUrl = `${host}api/products/uploadImg`;
+            const fileResponse = await fetch(newUrl, {
+                method: "POST",
+                headers: {
+                    "auth-token": localStorage.getItem("token")
+                },
+                body: data
+            })
+            json = await fileResponse.json();
+            if (fileResponse.status === 200) {
+                navigate('/profile')
+            }
+        }
+    }
     return (
         <div><div className="form-box">
             <h1>Sell Your product</h1>

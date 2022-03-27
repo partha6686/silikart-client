@@ -3,6 +3,7 @@ import "./App.css";
 import Home from "./pages/Home";
 import Navbar from "./components/common/Navbar";
 // -
+import Adding from "./components/common/Adding";
 import About from "./components/common/About";
 import ProductPage from './components/common/ProductPage';
 import Login from './pages/Login';
@@ -33,6 +34,8 @@ function App() {
           <Route exact path="/addproduct" element={<Seller />}></Route>
         </Routes>
       </div>
+      {/* <Route exact path="/addproduct" element={<Adding />}></Route> */}
+      <Adding />
     </Router>
     
   );

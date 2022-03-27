@@ -52,6 +52,8 @@ const Navbar = () => {
             <ul>
               <li><Link to="/"><b>HOME</b></Link></li>
               <li><Link to="/about">ABOUT</Link></li>
+              {localStorage.getItem('token') && <li><Link to="/profile"><b>PROFILE</b></Link></li>}
+              
               {localStorage.getItem('token') ? <li><Link to="/auth/login" onClick={handleLogout} >Logout</Link></li> : <li><Link to="/auth/signup">SignUp</Link></li>}
             </ul>
             <div className="burger">

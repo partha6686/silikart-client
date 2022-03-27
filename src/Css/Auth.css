@@ -1,0 +1,140 @@
+body{
+    background-image: linear-gradient(to right top, #6af46a, #00daa9, #00b9d3, #0093d8, #006ab7, #0069b6, #0069b4, #0068b3, #0090d1, #00b4cc, #00d3a6, #6aec6f); 
+  }
+  .auth {
+  
+      /* background-image: linear-gradient(to right top, #6af46a, #00daa9, #00b9d3, #0093d8, #006ab7, #0069b6, #0069b4, #0068b3, #0090d1, #00b4cc, #00d3a6, #6aec6f); */
+      background-color: white;
+      width: 400px;
+      margin: 3rem auto;
+      text-align: center;
+      padding: 2rem 1rem 1rem;
+      border-radius: 1rem;
+    }
+    .auth .input-div,
+    .auth .btn-div {
+      margin: 30px auto;
+      position: relative;
+    }
+    .auth .input-div {
+      width: 90%;
+      height: 50px;
+      font-size: 17px;
+      border-radius: 5px;
+      font-family: 'Poppins', sans-serif;
+      box-sizing: border-box;
+      border: 1px solid lightgrey;
+      display: flex;
+    }
+    .auth input {
+      border: none;
+      background-color:rgb(255, 255, 255);
+      margin: auto 0;
+      padding: 8px;
+      flex: 100%;
+      color: rgb(0, 0, 0);
+    }
+    
+    /*Remove EYE button from Edge browser **/
+    .auth input[type="password"]::-ms-reveal,
+    .auth input[type="password"]::-ms-clear {
+      display: none;
+    }
+    .auth .icon,
+    .auth .pass-icon {
+      position: relative;
+      top: 10px;
+      padding-right: 3px;
+      color:rgb(23, 23, 185);
+    }
+    .pass-icon {
+      cursor: pointer;
+    }
+    .auth .button-outline,
+    .auth .button-fill {
+      border-radius: 6px;
+      height:40px;
+      width: 27%;
+      margin: 1rem 0;
+    }
+    .auth hr {
+      background-color: black;
+      color:rgb(173, 37, 37);
+      opacity: 1;
+      border: none;
+    }
+    .auth .btn-div p {
+      margin: 32px auto 0;
+    }
+    .auth .btn-div span {
+      position: absolute;
+      background-color: white;
+      padding: 2px 6px;
+      max-width: fit-content;
+      left: 0;
+      right: 0;
+      margin: auto;
+      top: -14px;
+    }
+    .auth .input-error {
+      color: rgba(255, 0, 0, 0.849);
+      position: absolute;
+      bottom: -21px;
+      margin: 0 24px;
+      font-size: 14px;
+    }
+    
+    /*  MEDIA QUERRIES  */
+    @media (max-width: 450px) {
+      .auth {
+        width: 90vw;
+      }
+      .auth .input-div,
+      .auth .btn-div {
+        margin: 24px 10px;
+        position: relative;
+      }
+      .auth .input-error {
+        margin: 0 10px;
+      }
+    }
+    @media (max-width: 380px) {
+      .auth {
+        width: 95vw;
+      }
+      .auth .input-div,
+      .auth .btn-div {
+        margin: 24px 10px;
+        position: relative;
+      }
+    }
+    @media (max-width: 300px) {
+      .auth {
+        padding: 2rem 10px 1rem;
+      }
+      .auth .input-div,
+      .auth .btn-div {
+        margin: 24px 6px;
+        position: relative;
+      }
+      .auth .input-error {
+        margin: 0 6px;
+      }
+    }
+  
+    /** Removing and adding browsers default styles [V.IMP] ***/
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+    box-shadow: 0 0 0 30px rgb(255, 255, 255) inset !important;
+  }
+  input:-webkit-autofill {
+    -webkit-text-fill-color: rgb(78, 60, 60) !important;
+  }
+  input:focus {
+    outline: none !important;
+    border: none;
+    background-color: white;
+  }

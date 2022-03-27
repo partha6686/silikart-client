@@ -1,11 +1,9 @@
-import React from 'react'
+import React from "react";
+import Card from "../components/common/Card";
 
 const Home = () => {
-    return (
-        <div>
-            Home
-        </div>
-    )
-}
-
-export default Home
+    return <div>
+        <Card />
+    </div>
+};
+export default Home;

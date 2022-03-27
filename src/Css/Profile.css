@@ -1,0 +1,88 @@
+.dy {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: "Roboto", sans-serif;
+}
+
+.main-box {
+  width: 300px;
+  height: 400px;
+  box-shadow: 2px 4px 2px 4px rgba(70, 224, 151, 0.65);
+  border-radius: 10px;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.big-circle {
+  width: 150px;
+  height: 150px;
+  border: 10px solid #46e097;
+  border-radius: 50%;
+  margin: auto;
+  position: relative;
+}
+.small-circle {
+  width: 140px;
+  height: 140px;
+  border: 10px solid #daf9f6;
+  border-radius: 50%;
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  background-image: url("https://th.bing.com/th/id/OIP.F5k1EA-Jco3NDEdaNQgX3wHaHa?w=181&h=181&c=7&r=0&o=5&pid=1.7");
+  background-position: center;
+  background-size: cover;
+}
+
+.heading-name {
+  margin: 3px 0;
+}
+
+.heading-work {
+  color: #46e097;
+  font-weight: 300;
+  margin: 3px 0;
+}
+p {
+  padding: 0 20px;
+  margin-bottom: 25px;
+}
+
+.follow_btn {
+  text-decoration: none;
+  background: #46e097;
+  color: rgb(255, 236, 236);
+  padding: 10px 20px;
+  border-radius: 20px;
+  box-shadow: 2px 2px 1px 1px rgba(70, 224, 151, 0.65);
+}
+
+.follow_btn:hover {
+  color: #46e097;
+  background: #daf9f6;
+  font-weight: 600;
+}
+.info {
+  color: white;
+}
+.heading-name {
+  color: white;
+}
+.sofi button {
+  bottom: 30px;
+  position: relative;
+  left: 90px;
+  justify-content: center;
+  text-align: center;
+  border-radius: 5px;
+  background-color: aqua;
+  padding: 5px;
+}
+.sofi button b {
+  color: rgb(14, 13, 13);
+}

@@ -1,27 +1,68 @@
-import React from 'react'
+import React, { useEffect, useState } from "react";
+import "../Css/Profile.css";
+import UserProduct from "../components/common/UserProduct";
 
 const Profile = () => {
-    return (
-        <>
-        {/* to change all the insternal props imported from the backend part */}
-            <div className="dy">
-                <div>
-                    <div className="main-box">
-                        <div className="big-circle">
-                            <div className="small-circle"></div>
-                        </div>
-                        <h2 className="heading-name">to be added</h2>
-                        <br />
-                        <h3 className="heading-work">to be added</h3>
-                        <br />
-                        <p className="info">
-                        </p>
-                    </div>
-                </div>
+  const [user, setUser] = useState();
+  const [products, setProducts] = useState([]);
+  const fetchProducts = async () => {
+    const url = "http://localhost:3300/api/products/user";
+    const response = await fetch(url, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        "auth-token": localStorage.getItem("token"),
+      },
+    });
+    const json = await response.json();
+    console.log(json);
+    if (response.status === 200) {
+      setProducts(json);
+    }
+  };
+  const fetchUser = async () => {
+    const url = "http://localhost:3300/api/auth/info";
+    const response = await fetch(url, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        "auth-token": localStorage.getItem("token"),
+      },
+    });
+    const json = await response.json();
+    // console.log(json);
+    if (response.status === 200) {
+      setUser(json);
+    }
+  };
+  useEffect(() => {
+    fetchUser();
+    fetchProducts();
+  }, []);
+  return (
+    <>
+      <div className="dy">
+        <div>
+          <div className="main-box">
+            <div className="big-circle">
+              <div className="small-circle"></div>
             </div>
+            <h2 className="heading-name">{user && user.name}</h2>
+            <br />
+            <h3 className="heading-work">{user && user.college}</h3>
+            <br />
+            <p className="info"></p>
+          </div>
+        </div>
+      </div>
+      <div>
+        {products.map((data) => {
+          <p>{data.title}</p>;
+          // <UserProduct key={data._id} data={data} />
+        })}
+      </div>
+    </>
+  );
+};
 
-        </>
-    )
-}
-
-export default Profile
+export default Profile;

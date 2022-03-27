@@ -72,8 +72,8 @@ const Login = () => {
 
   return (
     <div className="auth">
-      {loginError && (
-        <p className="input-error">
+      {loginError.errors && (
+        <p style={{ color: "red" }}>
           <BiErrorCircle size="18px" />
           {loginError.errors}
         </p>
